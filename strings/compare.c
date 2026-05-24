@@ -1,4 +1,5 @@
 //Compare two strings without using strcmp() function
+//Returns 0 if equal, positive if str1 > str2, negative if str1 < str2
 
 #include <stdio.h>
 #include <string.h>
@@ -20,16 +21,7 @@ int compareStrings(char str1[], char str2[]){
         }
     }
 
-    if (str1[i] == str2[i]){
-        return 0;
-    }
-
-    else if (str1[i] == '\0'){
-        return -1;
-    }
-    else {
-        return 1;
-    }
+    return str1[i] - str2[i];
 }
 
 void displayResult(int result){
@@ -37,7 +29,7 @@ void displayResult(int result){
         printf("The strings are equal.");
     }
 
-    else if (result == 1){
+    else if (result > 0){
         printf("The first string is greater than the second string.");
     }
 
